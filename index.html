@@ -189,6 +189,14 @@ body, html {
     <div class="w3-col m3 w3-container">
       <!-- Add Google Maps -->
       <!--<div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>-->
+      <form id="my-form" action="https://formspree.io/f/mrgrlyye" method="POST">
+        <label>Email:</label>
+        <input type="email" name="email" />
+        <label>Message:</label>
+        <input type="text" name="message" />
+        <button id="my-form-button">Submit</button>
+        <p id="my-form-status"></p>
+      </form>
     </div>
     <div class="w3-col m6 w3-panel">
       <div class="w3-large w3-margin-bottom">
@@ -267,6 +275,29 @@ function toggleFunction() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOV85oHkMkBYeaMPUMgO4HVFYuo1OTDuk&callback=myMap"></script>
 
+<!-- FormSpree - Place this script at the end of the body tag -->
+<script>
+    var form = document.getElementById("my-form"); 
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+    
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QK9D6YFKG"></script>
 <script>
