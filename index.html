@@ -205,7 +205,7 @@ body, html {
         <label>Email: </label>
         <input type="email" name="email" placeholder="your@email.com"/><br/>
         <label>Message: </label><br/>
-        <textarea name="message" rows="5" cols="40" placeholder="Write your message here."></textarea><br/><br/>
+        <textarea name="message" rows="5" cols="40" placeholder="Write your message here"></textarea><br/><br/>
         <button id="my-form-button">Submit</button><br/>
         <p id="my-form-status"></p>
       </form>
@@ -291,7 +291,7 @@ function toggleFunction() {
             'Accept': 'application/json'
         }
       }).then(response => {
-        status.innerHTML = "Thank you for contacting us. We will reply to you soon.";
+        status.innerHTML = "Thank you for contacting us. We will reply you soon.";
         form.reset()
       }).catch(error => {
         status.innerHTML = "Ooppps! There was a problem submitting your form."
