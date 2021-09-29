@@ -229,9 +229,23 @@ body, html {
   </div>
 -->
 
-  <p>&copy; TagMe Tech Solutions</p>
+  <p><span id=copyright">&copy;</span> TagMe Tech Solutions</p>
 </footer>
- 
+
+<script>
+function geeks() {
+  // Creating Date Object 
+  var dateobj = new Date();
+
+  // Year from above object 
+  // is being fetched using getFullYear() 
+  var dateObject = dateobj.getFullYear();
+
+  // Printing current year 
+  document.getElementById("copyright").innerHTML = "&copy; " + dateObject;
+}
+</script>
+
 <!-- Add Google Maps -->
 <script>
 function myMap()
